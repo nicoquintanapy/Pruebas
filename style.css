@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Basic styles will go here */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Apply the imported font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Default text color */
+    background-color: #fff; /* Default page background */
+}
+
+/* Hero Section Styles */
+.hero {
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.container {
+    width: 90%; /* Slightly wider for better use of space */
+    max-width: 1100px; /* Max width for large screens */
+    margin: auto;
+    overflow: hidden; /* Keeps content within bounds */
+    padding: 0 20px; /* Add some padding on the sides of the container */
+}
+
+h1, h2, h3 {
+    color: #2c3e50; /* A slightly more modern dark blue/grey for headings */
+}
+
+a {
+    color: #3498db; /* A brighter blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2980b9; /* Darken link on hover */
+    text-decoration: none; /* Keep underline off by default */
+}
+
+.hero-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px; /* Slightly larger padding */
+    border-radius: 5px;
+    font-size: 1em;   /* Adjusted font size */
+    text-transform: uppercase; /* Uppercase text for buttons */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.btn-primary {
+    background-color: #3498db; /* Primary button color */
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9; /* Darker on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Services Section Styles */
+.services-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2em; /* Slightly adjust section title size */
+    margin-bottom: 40px; /* Increase bottom margin for better spacing */
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 10px; /* Space for the underline */
+}
+
+/* Add a subtle underline to section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #3498db; /* Accent color for underline */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    text-align: left;
+}
+
+.service-item {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.service-icon {
+    width: 50px; /* Adjust as needed */
+    height: 50px;
+    margin-bottom: 15px;
+    /* For now, let's add a background color to simulate an icon */
+    background-color: #337ab7;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #337ab7;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Testimonials Section Styles */
+.testimonials-section {
+    padding: 40px 0;
+    background-color: #f9f9f9; /* Slightly different background for separation */
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+.testimonial-item {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 5px solid #337ab7; /* Accent border */
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #337ab7;
+    text-align: right;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 40px 0;
+    background-color: #ffffff; /* White background */
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Form takes more space */
+    gap: 30px;
+    align-items: start;
+}
+
+.contact-form-container {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding and width */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resize */
+}
+
+.contact-form button.btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+}
+
+.contact-details {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.contact-details h3 {
+    color: #337ab7;
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.contact-details a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Dark background for footer */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px; /* Space above the footer */
+}
+
+/* Responsive adjustments for contact section if columns are too narrow */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr; /* Stack form and details on smaller screens */
+    }
+    .contact-details {
+        margin-top: 20px;
+    }
+}
