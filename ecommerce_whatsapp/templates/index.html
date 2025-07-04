@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Catálogo de Productos{% endblock %}
+
+{% block content %}
+<section class="product-grid">
+    <h2>Nuestro Catálogo</h2>
+    {% if productos %}
+        <div class="grid-container">
+            {% for producto in productos %}
+            <div class="product-card">
+                <a href="{{ url_for('producto', id_producto=producto.id) }}">
+                    <img src="{{ url_for('static', filename='images/' + producto.imagen) }}" alt="{{ producto.nombre }}" onerror="this.src='{{ url_for('static', filename='images/default.jpg') }}'; this.alt='Imagen no disponible';">
+                    <h3>{{ producto.nombre }}</h3>
+                </a>
+                <p class="price">{{ producto.moneda }} {{ "%.2f"|format(producto.precio) }}</p>
+                <p class="category">Categoría: {{ producto.categoria }}</p>
+                <div class="product-actions">
+                    <a href="{{ url_for('producto', id_producto=producto.id) }}" class="btn-details">Ver Detalles</a>
+                    <form action="{{ url_for('agregar_al_carrito', id_producto=producto.id) }}" method="POST" style="display: inline;">
+                        <button type="submit" class="btn-add-to-cart">Añadir al Carrito</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No hay productos disponibles en este momento.</p>
+    {% endif %}
+</section>
+{% endblock %}

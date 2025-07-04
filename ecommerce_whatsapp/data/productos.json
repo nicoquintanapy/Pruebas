@@ -1,0 +1,32 @@
+[
+  {
+    "id": "camiseta_001",
+    "nombre": "Camiseta Diseño Abstracto",
+    "descripcion": "Camiseta de algodón suave con un diseño abstracto moderno. Perfecta para un look casual.",
+    "precio": 29.99,
+    "moneda": "USD",
+    "imagen": "camiseta_abstracta.jpg",
+    "categoria": "Ropa",
+    "stock": 50
+  },
+  {
+    "id": "taza_001",
+    "nombre": "Taza de Café Inspiradora",
+    "descripcion": "Taza de cerámica con frase inspiradora. Ideal para tus mañanas.",
+    "precio": 15.50,
+    "moneda": "USD",
+    "imagen": "taza_inspiradora.jpg",
+    "categoria": "Hogar",
+    "stock": 100
+  },
+  {
+    "id": "gorra_001",
+    "nombre": "Gorra Deportiva Transpirable",
+    "descripcion": "Gorra deportiva ligera y transpirable, perfecta para actividades al aire libre.",
+    "precio": 22.00,
+    "moneda": "USD",
+    "imagen": "gorra_deportiva.jpg",
+    "categoria": "Accesorios",
+    "stock": 75
+  }
+]

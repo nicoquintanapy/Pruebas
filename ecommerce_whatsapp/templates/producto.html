@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}{{ producto.nombre }} - Mi Tienda Online{% endblock %}
+
+{% block head_extra %}
+<meta property="og:title" content="{{ producto.nombre }}" />
+<meta property="og:description" content="{{ producto.descripcion | striptags | truncate(150) }}" />
+<meta property="og:image" content="{{ url_for('static', filename='images/' + producto.imagen, _external=True) }}" />
+<meta property="og:url" content="{{ request.url }}" />
+<meta property="og:type" content="product" />
+{% endblock %}
+
+{% block content %}
+<section class="product-detail">
+    <div class="product-image-container">
+        <img src="{{ url_for('static', filename='images/' + producto.imagen) }}" alt="{{ producto.nombre }}" onerror="this.src='{{ url_for('static', filename='images/default.jpg') }}'; this.alt='Imagen no disponible';">
+    </div>
+    <div class="product-info">
+        <h2>{{ producto.nombre }}</h2>
+        <p class="price">{{ producto.moneda }} {{ "%.2f"|format(producto.precio) }}</p>
+        <p class="category">Categoría: {{ producto.categoria }}</p>
+
+        <h3>Descripción</h3>
+        <p>{{ producto.descripcion }}</p>
+
+        {% if producto.stock and producto.stock > 0 %}
+            <p><strong>Disponibilidad:</strong> En stock ({{ producto.stock }} unidades)</p>
+        {% elif producto.stock == 0 %}
+            <p><strong>Disponibilidad:</strong> Agotado</p>
+        {% else %}
+            <p><strong>Disponibilidad:</strong> Consultar</p>
+        {% endif %}
+
+        <div class="product-page-actions">
+            <form action="{{ url_for('agregar_al_carrito', id_producto=producto.id) }}" method="POST" style="display: inline-block; margin-right: 10px;">
+                <button type="submit" class="btn-add-to-cart btn-large">Añadir al Carrito</button>
+            </form>
+            <div class="whatsapp-button-container" style="display: inline-block;">
+                <a href="#" id="whatsapp-link" class="btn-whatsapp btn-large">Comprar Este Producto por WhatsApp</a>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn-back">Volver al catálogo</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts_extra %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const productName = "{{ producto.nombre|e }}";
+    const userPhoneNumber = "595975179764"; // Número proporcionado por el usuario.
+
+    // Codificar el nombre del producto para la URL
+    const encodedProductName = encodeURIComponent(productName);
+
+    // Mensaje predeterminado para WhatsApp
+    const defaultMessage = `Hola, estoy interesado en el producto: ${productName}`;
+    const encodedMessage = encodeURIComponent(defaultMessage);
+
+    const whatsappLink = `https://wa.me/${userPhoneNumber}?text=${encodedMessage}`;
+
+    const whatsappButton = document.getElementById('whatsapp-link');
+    if (whatsappButton) {
+        whatsappButton.href = whatsappLink;
+        whatsappButton.target = "_blank"; // Abrir en nueva pestaña
+    }
+});
+</script>
+{% endblock %}
