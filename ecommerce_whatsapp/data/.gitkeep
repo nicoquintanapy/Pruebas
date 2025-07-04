@@ -1,0 +1,2 @@
+# Este archivo asegura que el directorio 'data' sea rastreado por Git.
+# Contendrá archivos de datos, como por ejemplo, un JSON con la información de los productos.
